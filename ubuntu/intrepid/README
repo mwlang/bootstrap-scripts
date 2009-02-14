@@ -1,0 +1,20 @@
+Please follow Ubuntu’s most excellent guides for installing Ubuntu Server. For my purposes, I install everything to default choices, only choosing to install OpenSSH Server (and no others). Everything else is simply supplying the simple information requested at each prompt.
+
+Once the OS is installed and boots for the first time, log in and run the following:
+
+   1  sudo apt-get install git-core
+   2  git clone git://github.com/mwlang/bootstrap-scripts.git
+   3  cd bootstrap-scripts/ubuntu/intrepid
+   4  sh bootstrap.sh
+
+This will install the prerequisite git commands and check out the bootstrap-script repository and then run through upgrading the Ubuntu server and install the build-essentials.
+
+Depending on where you want to go with your server instance, you can run any of the other bootstrap scripts in the folder. For example, to install Ruby 1.8.7 from packages (not source) and install Apache2 and Passenger and Rails, run the following script:
+
+   1  sh bootstrap-passenger-std.sh
+
+You’ll need to hit the key a couple of times when passenger’s installer runs, but otherwise, should run start-to-finish, installing everything without any further action on your part to get a fully functioning Apache2 + Passenger + MRI Ruby 1.8.7 + Rails stack installed.
+
+Be careful, though. I didn’t put any dependency checks around these scripts. Its fairly safe to run any of the bootstrap-XXX.sh scripts without running anything else (these scripts do call the main bootstrap.sh script listed above). But several scripts, such as rails.sh do indeed have prerequisites and you will have issues running these out of order. Also, bootstrapping is targeting specific outcomes. Don’t expect to run one bootstrap-XXX.sh script and then run another. They are very likely to collide with undesirable outcomes.
+
+Documentation will be fairly sparse in the git repository, with the intent to spell things out in the accompanying blog articles.

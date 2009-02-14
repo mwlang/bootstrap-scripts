@@ -1,0 +1,3 @@
+LoadModule passenger_module /opt/ruby-enterprise-1.8.6-20090201/lib/ruby/gems/1.8/gems/passenger-2.0.6/ext/apache2/mod_passenger.so
+PassengerRoot /opt/ruby-enterprise-1.8.6-20090201/lib/ruby/gems/1.8/gems/passenger-2.0.6
+PassengerRuby /opt/ruby-enterprise-1.8.6-20090201/bin/ruby
